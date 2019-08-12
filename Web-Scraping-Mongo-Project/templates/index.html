@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+  <div class="container-fluid bg-light">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p class="text-danger"><h3><marquee class="text-danger">Mankind's next frontier!!!</marquee></h3></p>
+      
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
+    </div>
+    <div class="container grad">
+    <!--First row-->
+    <div class="container row bg-light">
+        <div class="col">
+            <h3>Latest Mars News</h3>
+            <p><strong>{{ mars.news_title }}</strong></p>
+            <p class="overflow-auto">{{ mars.news_p }}</p>
+            <br>
+            <h3>Featured Mars Image</h3>
+            {% if mars.featured_image_url %}
+            <img src="{{ mars.featured_image_url }}" alt="featured_mars_iamge">
+            {% endif %}
+        </div>
+      
+        <div class="col">
+                <div class="card w-100">
+                        <div class="card-body">
+                          <h4 class="card-title">Current Weather on Mars</h3>
+                          <p class="card-text">{{ mars.mars_weather }}</p>
+                          
+                        </div>
+                </div>
+                </br>
+                <div class="card w-150">
+                        <div class="card-body">
+                          <h5 class="card-title">Mars facts</h5>
+                          <!---Beginning of table-->
+                          <table class="table-responsive table-lg table-striped table-bordered border border-dark" style="border: 1px solid black;">
+                                <thead class="thead-light">
+                                  <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Value</th>
+
+                                  </tr>
+                                  <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                        {% if mars.mars_facts %}
+                                        {% for k,v in mars.mars_facts.items() %}
+                                        <tr>
+                                          <th scope="row"></th>
+                                          <td>{{ k }}</td>
+                                          <td>{{ v.value }} </td>
+      
+                                        </tr>
+                                      {% endfor %}
+                                      {% endif %}
+                                </tbody>
+                              </table>
+
+                          <!---End of table-->
+                        </div>
+                        
+                          
+                        </div>
+                </div>
+        </div>
+    </div>
+    </br>
+    <!-- End of 1st row-->
+    <!--Starting 2nd row-->
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-12 card text-center">
+              <div class="card-body">
+                <h3 class="card-title">Mars Hemispheres</h3>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            
+                    {% set ctr = 1 %}
+                    {% for image in mars.hemisphere_image_urls %}
+                    {% if ctr % 3 == 0 %}
+                       <div class="row">
+                            <div class="col-sm-6">
+                                    <figure class="figure">
+                                            <img src={{ image.img_url }} class="figure-img img-fluid rounded" alt="...">
+                                    <figcaption class="figure-caption">{{ image.title }}</figcaption>
+
+                            </div>
+                       </div>
+
+                    {% else %}
+                        <div class="col-sm-6">
+                            <figure class="figure">
+                                <img src={{ image.img_url }} class="figure-img img-fluid rounded" alt="...">
+                                <figcaption class="figure-caption font-weight-bold ">{{ image.title }}</figcaption>
+                            </figure>
+                        </div>
+                    {% endif %}
+                    {% set ctr = ctr + 1 %}
+                    {% endfor %}
+
+        </div>
+
+    </div>
+
+ 
+  </div>
+    <!--End of 2nd row-->
+</div>
+    <!---Beginning of footer-->
+    <div class="container-fluid bg-light" id="footer">
+      <!-- Footer Links -->
+    </br>
+
+
+    <div class="footer">
+            <p class="text-center text-dark blockquote-footer">From <a href="https://mars.nasa.gov/news/" alt="NASA Mars News Site">NASA Mars News Site</a> </p>
+            <p class="text-center text-dark blockquote-footer">From <a href="https://www.jpl.nasa.gov/spaceimages/" alt="Featured Image">JPL Featured Space Image</a> </p>
+            <p class="text-center text-dark blockquote-footer">From <a href="https://twitter.com/marswxreport" alt="Mars Weather">Mars Weather</a></p>
+            <p class="text-center text-dark blockquote-footer">From <a href="https://space-facts.com/mars/" alt="Mars Facts">Mars Facts</a></p>
+            <p class="text-center text-dark blockquote-footer">From <a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars" alt="Mars Hemispheres">Mars Hemispheres</a></p>
+    </div>
+          
+
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

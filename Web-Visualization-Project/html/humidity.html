@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!-- Bootswatch link for lumen theme-->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-iqcNtN3rj6Y1HX/R0a3zu3ngmbdwEa9qQGHdkXwSRoiE+Gj71p0UNDSm99LcXiXV" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Latitude - Latitude Vs Temperature</title>
+  </head>
+  <body>
+  	  <div class="container bg-light font-weight-bold">
+          <!-----Code for nav bar-->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+              <a class="navbar-brand bg-info text-white font-weight-bold" href="../index.html">Latitude</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+      
+                <li class="nav-item dropdown active">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Plots
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="./temperature.html">Temperature</a>
+                  <a class="dropdown-item" href="./cloudiness.html">Cloudiness</a>
+                              <a class="dropdown-item" href="./humidity.html">Wind Speed</a>
+                              <a class="dropdown-item" href="./windspeed.html">Humidity</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./comparisons.html">Comparison<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="./data.html">Data</a>
+                    </li>
+      
+                </ul>
+              </div>
+              </nav>
+              <!----End of code for nav bar-->
+            <div class="container jumbotron">
+              <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Humidity Vs Latitude</h5>
+                        <p class="card-text">Unable to see a specific trend for Humidity as latitude changes and high and low values everywhere as we go away from the equator. Humidity is the amount of water vapour in the air and ideally as temperature increases, relative humidity decreases. But when this data was collected, time of different cities are different and so humidity level could be different. Like less humidity in the air in the noon Vs more in the morning. But the local weather conditions like cloudiness, wind etc can affect the humidity and also presence of water bodies nearby.</p>
+                        
+                        <img class="card-img-bottom" src="../Resources/assets/images/Fig2.png" alt="Humidity_Latitude_Image">
+
+                        <a href="../index.html" class="btn btn-primary">Back to Home</a>
+                      </div>
+
+              </div>
+            </div>
+
+</div>
+            <!---Beginning of footer-->
+            <div class="container bg-dark">
+                <!-- Footer Links -->
+    
+              <div class="footer">
+                      <p class="text-center text-white">Copyright @myweatherapi.com</p>
+              </div>
+                    
+    
+            </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
